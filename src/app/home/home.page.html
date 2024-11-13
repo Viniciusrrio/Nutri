@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Página Inicial
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="user; else noUser">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Bem-vindo, {{ user.nome }}!</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Idade:</strong> {{ user.idade }} anos</p>
+        <p><strong>Peso:</strong> {{ user.peso }} kg</p>
+        <p><strong>Altura:</strong> {{ user.altura }} cm</p>
+        <p><strong>Gênero:</strong> {{ user.genero }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ng-template #noUser>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          Nenhum usuário autenticado
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Você não está logado. Por favor, faça login para acessar seus dados.</p>
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
+</ion-content>
