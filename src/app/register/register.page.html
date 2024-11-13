@@ -1,52 +1,56 @@
-<!-- src/app/register/register.page.html -->
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Cadastro</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="login-content">
+  <div class="welcome-message">Faça seu cadastro na</div>
+  <ion-title class="app-title">
+    <span class="letter" style="--i:1">N</span>
+    <span class="letter" style="--i:2">u</span>
+    <span class="letter" style="--i:3">.</span>
+    <span class="letter" style="--i:4">t</span>
+    <span class="letter" style="--i:5">r</span>
+    <span class="letter" style="--i:6">i</span>
+  </ion-title>
+  <div class="app-subtitle">uma nova forma de se alimentar.</div>
 
-<ion-content class="ion-padding">
   <form (submit)="register()">
-    <ion-item>
-      <ion-label position="floating">Nome Completo</ion-label>
-      <ion-input [(ngModel)]="nome" name="nome" type="text" required></ion-input>
+    <ion-item class="rounded-input">
+      <ion-icon name="person-circle-outline" slot="start" class="input-icon"></ion-icon>
+      <ion-input [(ngModel)]="nome" name="nome" type="text" placeholder="Nome Completo" required></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input [(ngModel)]="email" name="email" type="email" required></ion-input>
+    <ion-item class="rounded-input">
+      <ion-icon name="mail-outline" slot="start" class="input-icon"></ion-icon>
+      <ion-input [(ngModel)]="email" name="email" type="email" placeholder="Email" required></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Senha</ion-label>
-      <ion-input [(ngModel)]="password" name="password" type="password" required></ion-input>
+    <ion-item class="rounded-input">
+      <ion-icon name="lock-closed-outline" slot="start" class="input-icon"></ion-icon>
+      <ion-input [(ngModel)]="password" name="password" type="password" placeholder="Senha" required></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Idade</ion-label>
-      <ion-input [(ngModel)]="idade" name="idade" type="number" required></ion-input>
+    <ion-item class="rounded-input">
+      <ion-icon name="calendar-outline" slot="start" class="input-icon"></ion-icon>
+      <ion-input [(ngModel)]="idade" name="idade" type="number" placeholder="Idade" required></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Peso (kg)</ion-label>
-      <ion-input [(ngModel)]="peso" name="peso" type="number" required></ion-input>
+    <ion-item class="rounded-input">
+      <ion-icon name="fitness-outline" slot="start" class="input-icon"></ion-icon>
+      <ion-input [(ngModel)]="peso" name="peso" type="number" placeholder="Peso (kg)" required></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Altura (m)</ion-label>
-      <ion-input [(ngModel)]="altura" name="altura" type="number" step="0.01" required></ion-input>
+    <ion-item class="rounded-input">
+      <ion-icon name="arrow-up-circle-outline" slot="start" class="input-icon"></ion-icon>
+      <ion-input [(ngModel)]="altura" name="altura" type="number" step="0.01" placeholder="Altura (m)" required></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Gênero</ion-label>
-      <ion-select [(ngModel)]="genero" name="genero" required>
+    <ion-item class="rounded-input">
+      <ion-icon name="transgender-outline" slot="start" class="input-icon"></ion-icon>
+      <ion-select [(ngModel)]="genero" name="genero" placeholder="Gênero" required>
         <ion-select-option value="masculino">Masculino</ion-select-option>
         <ion-select-option value="feminino">Feminino</ion-select-option>
         <ion-select-option value="outro">Outro</ion-select-option>
       </ion-select>
     </ion-item>
 
-    <ion-button expand="full" type="submit">Cadastrar</ion-button>
-    <ion-button expand="full" fill="clear" routerLink="/login">Já tenho conta</ion-button>
+    <ion-button class="custom-button" shape="round" expand="full" type="submit">Cadastrar</ion-button>
+    <ion-button class="custom-button" fill="clear" shape="round" expand="full" routerLink="/login">Já tenho conta</ion-button>
   </form>
 </ion-content>

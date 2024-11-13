@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
+  {
+    path: 'receitas-almoco-jantar',
+    loadChildren: () => import('./receitas-almoco-jantar/receitas-almoco-jantar.module').then( m => m.ReceitasAlmocoJantarPageModule)
+  },
 ];
 
 @NgModule({

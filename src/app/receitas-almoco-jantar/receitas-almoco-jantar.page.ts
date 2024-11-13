@@ -1,32 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import { NutritionService } from '../services/nutrition.service';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { ReceitasService } from '../receitas.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  selector: 'app-receitas-almoco-jantar',
+  templateUrl: './receitas-almoco-jantar.page.html',
+  styleUrls: ['./receitas-almoco-jantar.page.scss'],
 })
-export class HomePage implements OnInit {
+export class ReceitasAlmocoJantarPage implements OnInit {
   user: any = {}; // Dados do usuário
-  foodQuery: string = '';
-  foodInfo: any = null;
-  constructor(private nutritionService: NutritionService) {}
-  
-  searchFoodNutrients() {
-    if (this.foodQuery.trim() !== '') {
-      this.nutritionService.getNutrients(this.foodQuery).subscribe((data: any) => {
-        this.foodInfo = data;
-        console.log(data);
-      }, error => {
-        console.error(error);
-      });
-    }
-  }
+  searchQuery: string = '';
+  foodData: any;
+  receitas: any[] = [];
+  constructor(private router: Router,private receitasService: ReceitasService) {}
+
   ngOnInit() {
     this.loadUserData();
+    this.receitasService.getReceitas().subscribe(data => {
+      this.receitas = data.results; // Armazenando as receitas retornadas
+    });
   }
 
   async loadUserData() {

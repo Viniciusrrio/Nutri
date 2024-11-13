@@ -8,7 +8,9 @@ import { AngularFireModule } from '@angular/fire/compat'; // Importa o AngularFi
 import { AngularFireAuthModule } from '@angular/fire/compat/auth'; // Importa o AngularFireAuthModule
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'; // Importa o AngularFirestoreModule
 import { environment } from '../environments/environment'; // Importa as configurações do Firebase
+import { HttpClientModule } from '@angular/common/http';
 
+import { NutritionService } from './services/nutrition.service';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -17,8 +19,10 @@ import { environment } from '../environments/environment'; // Importa as configu
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), // Inicializa o Firebase com a configuração do environment
     AngularFireAuthModule, // Importa o módulo de autenticação
-    AngularFirestoreModule, // Importa o módulo do Firestore
+    AngularFirestoreModule,
+    HttpClientModule, // Importa o módulo do Firestore
   ],
+  providers: [NutritionService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

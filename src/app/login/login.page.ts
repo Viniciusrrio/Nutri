@@ -8,9 +8,14 @@ import { AuthService } from '../services/auth.service'; // Certifique-se de que 
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
+  
   email: string = '';
   password: string = '';
+  passwordVisible: boolean = false;
 
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+  }
   constructor(
     private authService: AuthService,
     private router: Router
