@@ -3,6 +3,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, si
 import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore'; 
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { AlertController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class AuthService {
 
   private firestore = getFirestore(); 
 
-  constructor(private router: Router) {
+
+  constructor(private router: Router, private alertController: AlertController) {
     this.initializeAuthListener(); 
   }
 
@@ -31,6 +33,7 @@ export class AuthService {
   }
 
   
+  
   async login(email: string, password: string): Promise<void> {
     try {
       const auth = getAuth();
@@ -38,12 +41,29 @@ export class AuthService {
       const user = userCredential.user;
 
       if (user) {
-       
         this.loadUserData(user);
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Erro ao fazer login no Firebase', error);
-      throw error;
+
+      
+      let message = 'Ocorreu um erro ao tentar fazer login. Tente novamente mais tarde.';
+      if (error.code === 'auth/invalid-credential') {
+        message = 'Senha inválida. Por favor, tente novamente.';
+      } else if (error.code === 'auth/user-not-found') {
+        message = 'Usuário não encontrado. Verifique o e-mail e tente novamente.';
+      }
+
+      
+      const alert = await this.alertController.create({
+        header: 'Erro de Login',
+        subHeader: 'Não foi possível acessar sua conta',
+        message: message,
+        buttons: ['OK'],
+      });
+
+      await alert.present();
+      throw error; 
     }
   }
 
