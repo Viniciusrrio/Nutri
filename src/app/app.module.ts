@@ -1,28 +1,29 @@
-// src/app/app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AngularFireModule } from '@angular/fire/compat'; // Importa o AngularFireModule
-import { AngularFireAuthModule } from '@angular/fire/compat/auth'; // Importa o AngularFireAuthModule
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore'; // Importa o AngularFirestoreModule
-import { environment } from '../environments/environment'; // Importa as configurações do Firebase
+import { AngularFireModule } from '@angular/fire/compat'; 
+import { AngularFireAuthModule } from '@angular/fire/compat/auth'; 
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore'; 
+import { environment } from '../environments/environment'; 
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { NutritionService } from './services/nutrition.service';
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig), // Inicializa o Firebase com a configuração do environment
-    AngularFireAuthModule, // Importa o módulo de autenticação
+    AngularFireModule.initializeApp(environment.firebaseConfig), 
+    AngularFireAuthModule, 
     AngularFirestoreModule,
-    HttpClientModule, // Importa o módulo do Firestore
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule 
   ],
-  providers: [NutritionService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

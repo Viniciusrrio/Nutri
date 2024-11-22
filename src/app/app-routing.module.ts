@@ -20,9 +20,10 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'receitas-almoco-jantar',
-    loadChildren: () => import('./receitas-almoco-jantar/receitas-almoco-jantar.module').then( m => m.ReceitasAlmocoJantarPageModule)
+    path: 'recipes',
+    loadChildren: () => import('./recipes/recipes.module').then( m => m.RecipesPageModule)
   },
+  { path: 'recipe-detail/:id', loadChildren: () => import('./recipe-detail/recipe-detail.module').then(m => m.RecipeDetailPageModule) },
 ];
 
 @NgModule({

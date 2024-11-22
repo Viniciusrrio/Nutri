@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { getFirestore, doc, setDoc } from 'firebase/firestore'; // Importações para o Firestore v9
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'; // Importações de autenticação
+import { getFirestore, doc, setDoc } from 'firebase/firestore'; 
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'; 
 
 @Component({
   selector: 'app-register',
@@ -21,18 +21,18 @@ export class RegisterPage {
     private router: Router,
   ) {}
 
-  // Função de cadastro
+
   async register() {
     try {
-      // Criação do usuário no Firebase Authentication
+      
       const auth = getAuth();
       const userCredential = await createUserWithEmailAndPassword(auth, this.email, this.password);
 
-      // Obtenção do Firestore e criação do documento do usuário
-      const firestore = getFirestore(); // Obter instância do Firestore
-      const userRef = doc(firestore, 'users', userCredential.user.uid); // Usando UID para o documento
+      
+      const firestore = getFirestore(); 
+      const userRef = doc(firestore, 'users', userCredential.user.uid); 
 
-      // Salvando dados no Firestore
+     
       await setDoc(userRef, {
         nome: this.nome,
         email: this.email,
@@ -40,10 +40,10 @@ export class RegisterPage {
         peso: this.peso,
         altura: this.altura,
         genero: this.genero,
-        uid: userCredential.user.uid // Armazena o UID do Firebase Authentication
+        uid: userCredential.user.uid 
       });
 
-      // Redirecionando para a página de login após o cadastro
+      
       this.router.navigate(['/login']);
     } catch (error) {
       console.error("Erro ao criar conta ou salvar dados no Firestore", error);

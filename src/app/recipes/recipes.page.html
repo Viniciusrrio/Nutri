@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Buscar Receitas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-input
+      placeholder="Digite o nome de uma receita"
+      [(ngModel)]="query"
+    ></ion-input>
+    <ion-button (click)="searchRecipes()" fill="clear">Buscar</ion-button>
+  </ion-item>
+
+  <ion-list>
+    <ion-item *ngFor="let recipe of recipes" (click)="openRecipeDetail(recipe.id)">
+      <ion-thumbnail slot="start">
+        <img [src]="recipe.image" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ recipe.title }}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  
+  
+</ion-content>

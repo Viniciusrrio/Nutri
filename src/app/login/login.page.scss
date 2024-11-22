@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap');
 
 ion-content {
-  --background: #2d3e1f; /* Fundo verde escuro */
+  --background: #2d3e1f; 
 }
 .welcome-message {
 display: flex;
@@ -26,10 +26,10 @@ display: flex;
 .letter {
   display: inline-block;
   animation: float 3s ease-in-out infinite;
-  animation-delay: calc(0.3s * var(--i)); /* Atraso sequencial */
+  animation-delay: calc(0.3s * var(--i)); 
 }
 
-/* Animação de flutuação */
+
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -63,7 +63,7 @@ display: flex;
 .rounded-input {
   --background: #ffffff;
   --border-radius: 15px;
-  --box-shadow: 0px 4px 10px #66bb6a; /* Sombra verde claro ao redor */
+  --box-shadow: 0px 4px 10px #66bb6a; 
   margin: 10px 20px;
   padding: 5px;
   display: flex;
@@ -72,20 +72,20 @@ display: flex;
 
 ion-item.rounded-input {
   border-radius: 15px;
-  box-shadow: 0px 0px 10px 2px #66bb6a; /* Sombra verde claro ao redor */
+  box-shadow: 0px 0px 10px 2px #66bb6a; 
 }
 
 .input-icon {
-  color: #66bb6a; /* Ícones com a mesma cor verde */
+  color: #66bb6a;
   font-size: 1.5em;
 }
 
 ion-label, ion-input {
-  color: #333333; /* Cor do texto */
+  color: #333333; 
 }
 
 ion-input {
-    --placeholder-opacity: 1; /* Garante que o placeholder será visível até o usuário começar a digitar */
+    --placeholder-opacity: 1; 
   }
   
   ion-item.rounded-input {
@@ -93,15 +93,15 @@ ion-input {
   }
   
   ion-input::part(native) {
-    transition: all 0.2s ease; /* Animação suave para o placeholder subir */
+    transition: all 0.2s ease; 
   }
   
   .custom-button {
-    border-radius: 50px; /* Torna o botão arredondado */
-    position: relative; /* Necessário para a animação */
-    overflow: hidden; /* Para garantir que a animação não ultrapasse os limites do botão */
-    padding: 10px 20px; /* Ajuste o preenchimento conforme necessário */
-    transition: background-color 0.3s ease; /* Suaviza a transição de cor de fundo */
+    border-radius: 50px; 
+    position: relative; 
+    overflow: hidden;
+    padding: 10px 20px; 
+    transition: background-color 0.3s ease;
     color: white;
     background-color: #66bb6a;
     width: 70%;
@@ -110,25 +110,25 @@ ion-input {
   }
   
   .custom-button::before {
-    content: ''; /* Cria o pseudo-elemento para a animação */
+    content: ''; 
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background-color: #84e9b0 ; /* Cor de fundo do botão durante a animação */
-    transition: left 0.3s ease; /* Controla a direção da animação */
+    background-color: #84e9b0 ; 
+    transition: left 0.3s ease; 
   }
   
   .custom-button:hover::before {
-    left: 0; /* Quando o mouse estiver em cima, a animação se moverá de esquerda para direita */
+    left: 0; 
   }
   
   .custom-button:hover {
-    color: #fff; /* Muda a cor do texto para branco quando o botão é hover */
+    color: #fff; 
   }
   ion-button {
-    display: block; /* Faz o botão ocupar uma linha inteira */
+    display: block;
     margin-left: auto;
     margin-right: auto;
     text-align: center;

@@ -1,11 +1,17 @@
-<!-- src/app/home/home.page.html -->
 <ion-header>
   <ion-toolbar>
     <ion-title>
       Página Inicial
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+        Sair
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content class="login-content">
 
@@ -24,27 +30,16 @@
       </ion-card-content>
     </ion-card>
   </div>
-  <ion-searchbar [(ngModel)]="foodQuery" (ionInput)="searchFoodNutrients()" placeholder="Digite o nome de um alimento"></ion-searchbar>
-
-  <ion-card *ngIf="foodInfo">
-    <ion-card-header>
-      <ion-card-title>{{ foodInfo.foods[0].food.name }}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p><strong>Calorias:</strong> {{ foodInfo.foods[0].food.nutrients.ENERC_KCAL }} kcal</p>
-      <p><strong>Proteínas:</strong> {{ foodInfo.foods[0].food.nutrients.PROCNT }} g</p>
-      <p><strong>Gorduras:</strong> {{ foodInfo.foods[0].food.nutrients.FAT }} g</p>
-      <p><strong>Carboidratos:</strong> {{ foodInfo.foods[0].food.nutrients.CHOCDF }} g</p>
-    </ion-card-content>
-  </ion-card>
-  <!--
+  <ion-input [(ngModel)]="question" placeholder="Digite o que deseja saber sobre algum alimento"></ion-input>
+  <ion-button style="width: 50%;" (click)="submit()" class="custom-button" fill="clear" >Procurar</ion-button>
+  
    <ion-card class="rounded-card">
     <ion-card-header>
       <ion-card-title>Receitas de Almoço/Jantar</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <p>Explore deliciosas receitas de almoço e jantar para o seu dia a dia.</p>
-      <ion-router-link routerLink="/receitas-almoco-jantar">
+      <ion-router-link routerLink="/recipes">
         <ion-button class="custom-button" fill="clear" shape="round" expand="full">Ver Receitas</ion-button>
       </ion-router-link>
     </ion-card-content>
@@ -57,13 +52,13 @@
     </ion-card-header>
     <ion-card-content>
       <p>Descubra sobremesas incríveis para adoçar seu dia.</p>
-      <ion-router-link routerLink="/receitas-sobremesa">
+      <ion-router-link routerLink="/recipes">
         <ion-button class="custom-button" fill="clear" shape="round" expand="full">Ver Sobremesas</ion-button>
       </ion-router-link>
     </ion-card-content>
   </ion-card>
   
--->
+
   <ng-template #noUser>
     <ion-card class="rounded-card">
       <ion-card-header>
